@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Suyeon Yang\\Desktop\\MvcMovie\\MvcMovie.csproj": {}
+    "C:\\Users\\sangs\\MvcMovie\\MvcMovie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Suyeon Yang\\Desktop\\MvcMovie\\MvcMovie.csproj": {
+    "C:\\Users\\sangs\\MvcMovie\\MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Suyeon Yang\\Desktop\\MvcMovie\\MvcMovie.csproj",
+        "projectUniqueName": "C:\\Users\\sangs\\MvcMovie\\MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "C:\\Users\\Suyeon Yang\\Desktop\\MvcMovie\\MvcMovie.csproj",
-        "packagesPath": "C:\\Users\\Suyeon Yang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Suyeon Yang\\Desktop\\MvcMovie\\obj\\",
+        "projectPath": "C:\\Users\\sangs\\MvcMovie\\MvcMovie.csproj",
+        "packagesPath": "C:\\Users\\sangs\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sangs\\MvcMovie\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Suyeon Yang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sangs\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

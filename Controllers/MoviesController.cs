@@ -69,8 +69,8 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var movie = await _context.Movie.Include(m => m.Genre).SingleOrDefaultAsync(m => m.Id == id);
+
             if (movie == null)
             {
                 return NotFound();
@@ -82,7 +82,7 @@ namespace MvcMovie.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
-            ViewData["GenreId"] = new SelectList(_context.Genre, "GenreId", "GenreName");
+            ViewBag.Genre = new SelectList(_context.Genre, "GenreId", "GenreName");
             return View();
         }
 
@@ -93,14 +93,14 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
-             ViewData["GenreId"] = new SelectList(_context.Genre, "GenreId", "GenreName");
+            movie.Genre = _context.Genre.FirstOrDefault(g => g.GenreId == movie.Genre.GenreId);
 
             if (ModelState.IsValid)
             {
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
-            }         
+            }
 
             return View(movie);
         }
@@ -113,7 +113,9 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FindAsync(id);
+            var movie = await _context.Movie.Include(m => m.Genre).SingleOrDefaultAsync(m => m.Id == id);
+
+            ViewBag.Genre = new SelectList(_context.Genre, "GenreId", "GenreName", movie.GenreId);
             if (movie == null)
             {
                 return NotFound();
@@ -137,6 +139,7 @@ namespace MvcMovie.Controllers
             {
                 try
                 {
+                    movie.Genre = _context.Genre.FirstOrDefault(g => g.GenreId == movie.Genre.GenreId);
                     _context.Update(movie);
                     await _context.SaveChangesAsync();
                 }
@@ -164,8 +167,8 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var movie = await _context.Movie.Include(m => m.Genre).SingleOrDefaultAsync(m => m.Id == id);
+
             if (movie == null)
             {
                 return NotFound();
